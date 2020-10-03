@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.midnightgeek.atlasbook.models.ModelBook" />
+
+        <variable
+            name="delegate"
+            type="com.midnightgeek.atlasbook.ui.callback.ClickDelegate" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> delegate.onClick(data)}"
+        android:padding="4dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/imgBook"
+            android:layout_width="120dp"
+            android:layout_height="184dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@drawable/holder_book"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:roundWithOverlayColor="@color/background"
+            fresco:roundedCornerRadius="4dp" />
+
+        <TextView
+            android:id="@+id/lblBookName"
+            style="@style/MyTextViewItemHeader"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBook" />
+
+        <TextView
+            android:id="@+id/lblBookWriter"
+            style="@style/MyTextViewItemDetail"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@{data.auther.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblBookName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

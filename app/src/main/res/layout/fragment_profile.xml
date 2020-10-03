@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="com.midnightgeek.atlasbook.models.ModelUser" />
+        <variable
+            name="viewmodel"
+            type="com.midnightgeek.atlasbook.ui.ProfileViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:layout_height="match_parent">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_marginTop="128dp"
+            android:id="@+id/imgProfile"
+            android:layout_width="184dp"
+            android:layout_height="184dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@drawable/placeholder_profile"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:roundWithOverlayColor="@color/background"
+            app:roundingBorderColor="@color/colorPrimaryDark"
+            app:roundingBorderWidth="1dp"
+            fresco:roundedCornerRadius="184dp" />
+
+        <TextView
+            android:id="@+id/lblBookName"
+            style="@style/MyTextViewSectionHeader"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.displayName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/lblBookWriter"
+            style="@style/MyTextViewSectionBodySecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.email}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblBookName" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            style="@style/button_black"
+            android:onClick="@{(view) -> viewmodel.onClick(1)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

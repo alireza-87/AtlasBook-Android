@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "484684924449",
+    "firebase_url": "https://booklibrary-9c3a9.firebaseio.com",
+    "project_id": "booklibrary-9c3a9",
+    "storage_bucket": "booklibrary-9c3a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484684924449:android:e3289504f8fbbf2d428560",
+        "android_client_info": {
+          "package_name": "com.midnightgeek.atlasbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484684924449-k69i457fa2bb8qc9jugd76jmlsu8lgk2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.midnightgeek.atlasbook",
+            "certificate_hash": "88346a472b169efb075a272dddf903e5eb0433ae"
+          }
+        },
+        {
+          "client_id": "484684924449-vpo8b0228tc6m5grjuan9uorcv9ai343.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrGE6xIPUy4IZC23mI-YppMYXN8JK9kQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484684924449-vpo8b0228tc6m5grjuan9uorcv9ai343.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

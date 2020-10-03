@@ -1,0 +1,153 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/text_header</item>
+
+        <item name="buttonBarButtonStyle">@style/button_black</item>
+        <item name="toolbarStyle">@style/AppToolbar</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="background">@color/background</item>
+        <!--<item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>-->
+    </style>
+
+     <!-- bottom nav -->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/secondary_text</item>
+    </style>
+
+    <!-- botton -->
+    <style name="button_primary" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="button_black" parent="Widget.AppCompat.Button">
+        <item name="android:layout_margin">16dp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:background">@drawable/button_accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="button_white" parent="Widget.AppCompat.Button">
+        <item name="android:layout_margin">16dp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <!-- toolbar -->
+    <style name="AppToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:itemBackground">@color/icons</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+    </style>
+
+    <!-- textview -->
+    <style name="MyTextViewSectionHeader" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="MyTextViewSectionBody" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="MyTextViewSectionBodySecondary" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="MyTextViewItemHeader" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="MyTextViewItemDetail" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="fontFamily">@font/light</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="MyTextViewItemDetailPrime" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/light</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="MyTextViewItemDetailAccent" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="fontFamily">@font/light</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="MyTextViewPlaceHolder" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_h1</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+
+    <style name="BottomNavThem" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+    
+    <style name="MyProgress" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="background">@color/black</item>
+        <item name="android:process">#123322</item>
+
+    </style>
+
+    <style name="myRating" parent="@style/Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/ic_rating_full</item>
+        <item name="android:minHeight">25dp</item>
+        <item name="android:maxHeight">25dp</item>
+    </style>
+</resources>

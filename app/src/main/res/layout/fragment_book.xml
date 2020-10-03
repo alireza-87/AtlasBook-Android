@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.midnightgeek.atlasbook.models.ModelBook" />
+
+        <variable
+            name="viewmodel"
+            type="com.midnightgeek.atlasbook.ui.BookFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:theme="@style/AppToolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{(view) -> viewmodel.onBack()}"
+                    android:src="@drawable/ic_back"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/img_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/img_share"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{(view) -> viewmodel.onFavorite(data)}"
+                    android:src="@drawable/ic_fav_empty"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/img_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{(view) -> viewmodel.onShare(data)}"
+                    android:src="@drawable/ic_share"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:text="@string/app_name"
+
+                        android:textColor="@color/icons" />
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgBook"
+                    android:layout_width="120dp"
+                    android:layout_height="184dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@drawable/holder_book"
+                    fresco:placeholderImageScaleType="centerCrop"
+                    fresco:roundWithOverlayColor="@color/background"
+                    fresco:roundedCornerRadius="4dp" />
+
+                <TextView
+                    android:id="@+id/lblBookName"
+                    style="@style/MyTextViewItemHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgBook" />
+
+                <TextView
+                    android:id="@+id/lblBookWriter"
+                    style="@style/MyTextViewItemDetailAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.auther.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblBookName" />
+
+                <TextView
+                    android:id="@+id/lblBookTranslator"
+                    style="@style/MyTextViewItemDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.translator.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblBookWriter" />
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="@style/myRating"
+                    android:stepSize="1"
+                    android:isIndicator="false"
+                    app:layout_constraintTop_toBottomOf="@+id/lblBookTranslator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:numStars="5"
+                    android:layout_marginTop="4dp"
+                    android:rating="3"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </RatingBar>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRead"
+                    style="@style/button_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> viewmodel.onRead(data)}"
+                    android:text="@string/read"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    fresco:layout_constraintTop_toBottomOf="@+id/rating" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDownload"
+                    style="@style/button_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> data.modelFile==null?viewmodel.onDownload(data):viewmodel.onRemove(data)}"
+                    android:text="@{data.modelFile==null?@string/download:@string/remove}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    fresco:layout_constraintTop_toBottomOf="@+id/btnRead" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    fresco:layout_constraintTop_toBottomOf="@+id/btnDownload">
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:theme="@style/MyProgress"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:max="100"
+                        android:progress="1"
+                        fresco:layout_constraintEnd_toStartOf="@+id/btnCancel"
+                        fresco:layout_constraintStart_toEndOf="@+id/lblProgress"
+                        fresco:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/lblProgress"
+                        android:layout_width="64dp"
+                        android:layout_height="32dp"
+                        android:gravity="center"
+                        style="@style/MyTextViewItemDetail"
+                        fresco:layout_constraintStart_toStartOf="parent"
+                        fresco:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/btnCancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:background="@android:color/transparent"
+                        android:onClick="@{(view) -> viewmodel.onCancel()}"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_close"
+                        fresco:layout_constraintBottom_toBottomOf="parent"
+                        fresco:layout_constraintEnd_toEndOf="parent"
+                        fresco:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/lblBookDesc"
+                    style="@style/MyTextViewSectionBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.desc}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clProgress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>
